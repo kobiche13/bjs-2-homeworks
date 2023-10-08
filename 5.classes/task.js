@@ -85,11 +85,11 @@ class Library{
 
     giveBookByName(bookName){
        
-        let check = this.books.findIndex(item => item['name'] === bookName);
+        let check = this.books.findIndex(item => item.name === bookName);
         
         if (check !== -1){
             let deleteBook = this.books.splice(check, 1);
-            return deleteBook[0].name;
+            return deleteBook.find(item => item.name === bookName);
             
         } else {
             return null;
