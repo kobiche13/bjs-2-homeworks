@@ -37,22 +37,17 @@ class AlarmClock {
 
 
 	start() {
-
 		if (this.intervalId !== null) {
 			return;
-		} else {
-			this.intervalId = setInterval(() => {
-
-				this.alarmCollection.forEach(item => {
-
-					if (item.time === this.getCurrentFormattedTime() && item.canCall === true) {
-						item.canCall = false;
-						item.callback();
-					}
-				})
-			}, 1000);
 		}
-
+		this.intervalId = setInterval(() => {
+			this.alarmCollection.forEach(item => {
+				if (item.time === this.getCurrentFormattedTime() && item.canCall === true) {
+					item.canCall = false;
+					item.callback();
+				}
+			})
+		}, 1000);
 	}
 
 	stop() {
@@ -67,7 +62,7 @@ class AlarmClock {
 	}
 
 	clearAlarms() {
-		stop();
+		this.stop();
 		this.alarmCollection = [];
 	}
 }
