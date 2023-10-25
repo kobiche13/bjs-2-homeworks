@@ -99,3 +99,36 @@ class Library {
 	}
 
 }
+/*Артем, доброе утро!
+
+Спасибо за присланную работу.
+
+В классе Magazine параметры name, releaseDate, pagesCount должны приходить из родительского класса PrintEditionItem, то есть должны пробрасываться в функцию super. Хоть тесты и закрываются, они не покрывают всю кодовую базу, и по сути это ошибка. Из-за этого не буду возвращать работу на доработку, но поправьте это у себя в репозитории.
+
+Метод splice возвращает массив из удаленных элементов. В нашем случае deleteBook - это массив из одной книги. А так как по условию задачи нужно вернуть книгу, в этой строке достаточно было вернуть первый и единственный элемент этого массива, то есть return deleteBook[0].
+
+Методы findBookBy и giveBookByName можно немного порефакторить:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+findBookBy(type, value) {
+ const findResult = this.books.find((item) => item[type] === value);
+ return findResult || null;
+}
+
+giveBookByName(bookName) {
+  const book = this.findBookBy("name", bookName);
+  if (!book) return null;
+  this.books = this.books.filter((item) => item.name !== bookName);
+  return book;
+}
+Вы отлично справились с домашним заданием. Ставлю зачет. Удачи в дальнейшем обучении!*/
